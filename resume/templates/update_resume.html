@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Resume</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <h1>Update/Edit Resume</h1>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <label for="profile_picture">Profile Picture:</label>
+        <input type="file" name="profile_picture"><br>
+
+        <label for="full_name">Full Name:</label>
+        <input type="text" name="full_name" value="{{ resume.full_name }}" required><br>
+
+        <label for="email">Email:</label>
+        <input type="email" name="email" value="{{ resume.email }}" required><br>
+
+        <label for="phone">Phone:</label>
+        <input type="text" name="phone" value="{{ resume.phone }}" required><br>
+
+        <label for="education">Education:</label>
+        <textarea name="education" required>{{ resume.education }}</textarea><br>
+
+        <label for="skills">Skills:</label>
+        <textarea name="skills" required>{{ resume.skills }}</textarea><br>
+
+        <label for="language">Languages:</label>
+        <textarea name="languages" required>{{ resume.languages }}</textarea><br>
+
+        <label for="experience">Experiences:</label>
+        <textarea name="experience" required>{{ resume.experience }}</textarea><br>
+
+        <label for="training-certificationa">Training-certifications:</label>
+        <textarea name="training_certifications" required>{{ resume.training_certifications }}</textarea><br>
+
+        <label for="project">Projects:</label>
+        <textarea name="projects" required>{{ resume.projects }}</textarea><br>
+
+        <label for="interest">Interests:</label>
+        <textarea name="interests" required>{{ resume.interests }}</textarea><br>
+
+        <button type="submit">Update Resume</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Resume</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <h1>Create a New Resume</h1>
+
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <label for="profile_picture">Profile Picture:</label>
+        <input type="file" name="profile_picture"><br><br>
+
+        <label for="full_name">Full Name:</label>
+        <input type="text" name="full_name" required><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" name="email" required><br><br>
+
+        <label for="phone">Phone:</label>
+        <input type="text" name="phone" required><br><br>
+
+        <label for="education">Education:</label>
+        <textarea name="education" required></textarea><br><br>
+
+        <label for="skill">Skills:</label>
+        <textarea name="skills" required></textarea><br><br>
+
+        <label for="language">Language:</label>
+        <textarea name="languages" required></textarea><br><br>
+
+        <label for="experience">Experience:</label>
+        <textarea name="experience" required></textarea><br><br>
+
+        <label for="training-certification">Training-certification:</label>
+        <textarea name="training_certifications" required></textarea><br><br>
+
+        <label for="project">Projects:</label>
+        <textarea name="projects" required></textarea><br><br>
+
+        <label for="interest">Interest:</label>
+        <textarea name="interests" required></textarea><br><br>
+
+        <button type="submit">Create Resume</button>
+
+    </form>
+    
+</body>
+</html>

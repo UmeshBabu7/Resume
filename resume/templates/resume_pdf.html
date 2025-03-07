@@ -1,0 +1,109 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ resume.full_name }}'s Resume</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+
+        h1 {
+            color: #4CAF50;
+            text-align: center;
+        }
+
+        .contact-info {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+           px 0;
+        }
+
+        .section-title {
+            color: #4CAF50;
+            margin-top: 20px;
+        }
+
+        .section-content {
+            margin-left: 20px;
+        }
+
+        .section-content p {
+            margin: 5px 0;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>{{ resume.full_name }}'s Resume</h1>
+    </header>
+
+    {% if profile_picture_url %}
+    <img src="{{ profile_picture_url }}" alt="Profile Picture" class="profile-image">
+{% else %}
+    <p>No profile Picture uploaded</p>
+{% endif %}
+
+    <section class="contact-info">
+        <p><strong>Email:</strong> {{ resume.email }}</p>
+        <p><strong>Phone:</strong> {{ resume.phone }}</p>
+    </section>
+
+    <section class="education">
+        <h2 class="section-title">Education</h2>
+        <div class="section-content">
+            <p>{{ resume.education }}</p>
+        </div>
+    </section>
+
+    <section class="skills">
+        <h2 class="section-title">Skills</h2>
+        <div class="section-content">
+            <p>{{ resume.skills }}</p>
+        </div>
+    </section>
+
+    <section class="language">
+        <h2 class="section-title">Language</h2>
+        <div class="section-content">
+            <p>{{ resume.languages }}</p>
+        </div>
+    </section>
+
+    <section class="experience">
+        <h2 class="section-title">Experience</h2>
+        <div class="section-content">
+            <p>{{ resume.experience }}</p>
+        </div>
+    </section>
+
+    <section class="training-certification">
+        <h2 class="section-title">Training-certification</h2>
+        <div class="section-content">
+            <p>{{ resume.training_certifications }}</p>
+        </div>
+    </section>
+
+    <section class="project">
+        <h2 class="section-title">Projects</h2>
+        <div class="section-content">
+            <p>{{ resume.projects }}</p>
+        </div>
+    </section>
+
+    <section class="interest">
+        <h2 class="section-title">Interest</h2>
+        <div class="section-content">
+            <p>{{ resume.interests }}</p>
+        </div>
+    </section>
+
+</body>
+</html>

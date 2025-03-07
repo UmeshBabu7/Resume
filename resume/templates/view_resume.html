@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ resume.full_name }}'s Resume</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    {% if resume.profile_picture %}
+    <img src="{{ resume.profile_picture.url }}" alt="Profile Picture" width="150">
+{% else %}
+    <p>No profile Picture uploaded</p>
+{% endif %}
+
+    <header>
+        <h1>{{ resume.full_name }}'s Resume</h1>
+    </header>
+
+    <section class="contact-info">
+        <p><strong>Name:</strong> {{ resume.full_name }} </p>
+        <p><strong>Email:</strong> {{ resume.email }}</p>
+        <p><strong>Phone:</strong> {{ resume.phone }}</p>
+    </section>
+
+    <section class="education">
+        <h2>Education</h2>
+        <p>{{ resume.education }}</p>
+    </section>
+
+    <section class="skills">
+        <h2>Skills</h2>
+        <p>{{ resume.skills }}</p>
+    </section>
+
+    <section class="language">
+        <h2>Language</h2>
+        <p>{{ resume.languages }}</p>
+    </section>
+
+    <section class="experience">
+        <h2>Experience</h2>
+        <p>{{ resume.experience }}</p>
+    </section>
+
+    <section class="training-certification">
+        <h2>Training-certification</h2>
+        <p>{{ resume.training_certifications }}</p>
+    </section>
+
+    <section class="project">
+        <h2>Project</h2>
+        <p>{{ resume.projects }}</p>
+    </section>
+
+    <section class="interest">
+        <h2>Interest</h2>
+        <p>{{ resume.interests }}</p>
+    </section>
+   
+    <footer>
+        <a href="{% url 'resume_app:home' %}">Back to Home</a>
+        <a href="{% url 'resume_app:generate_pdf' resume.id %}">Download PDF</a>
+    </footer>
+</body>
+</html>
